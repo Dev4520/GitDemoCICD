@@ -9,8 +9,8 @@ on:
 
 persmissions:
   contents: read
-    pages: write
-    id-token: write
+  pages: write
+  id-token: write
 
 concurrency:
   group:"pages"
