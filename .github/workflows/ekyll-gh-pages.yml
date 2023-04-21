@@ -1,23 +1,26 @@
-name: cicd
+name: Deploy Jenyll with GitHub Pages dependencies preinstalled
 
 on:
+  # Runs on pushes targeting the default branch
   push:
     branches:["main"]
 
-
+  # Allow you to run this workflow manually from the Actions tab
   wokflow_dispatch:
 
+# Sets permissions of the GITHUB_TOKEN to allow deployments to GitHub Pages
 persmissions:
   contents: read
   pages: write
   id-token: write
 
+# Allow one concurrent deployment
 concurrency:
-  group:"pages"
+  group: "pages"
   cancel-in-progress: true
 
 jobs:
-  # CI
+  # CI Build Jon
   build:
     runs-on: ubuntu-latest
     steps:
@@ -32,7 +35,7 @@ jobs:
           destination: ./_site
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
-# CD
+# CD Deployment JOn
 deploy:
   enviroment:
     name: github-pages
